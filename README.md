@@ -8,7 +8,7 @@ This is a test to qualify me for teaching at General Assembly.
 Project
 -------
 * Use Javascript to create a single page app to show and display movie info.
-* Use the [http://www.omdbapi.com/] (OMDB API)
+* Use the [OMDB API] (http://www.omdbapi.com/)
 * Creat a single page app that will have:
 ** a search input box
 ** movie search results
