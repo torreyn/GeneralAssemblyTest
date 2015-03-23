@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" ng-app="movieSearcher">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Foundation | Welcome</title>
+    <link rel="stylesheet" href="css/foundation.css" />
+    <link rel="stylesheet" href="css/app.css" />
+    <script src="js/vendor/modernizr.js"></script>
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <style type="text/css"></style>
+</head>
+
+<body ng-controller="SearchController as search">
+    <!-- Title -->
+    <div class="row">
+        <div class="small-12 columns">
+            <h1>Torrey's Movie Search Engine</h1> {{ "Angular is Working!" }}
+        </div>
+    </div>
+
+    <!-- Search bar -->
+    <div class="row">
+        <div class="small-2 medium-1 columns">
+            <label for="right-label" class="right inline">Movie: </label>
+        </div>
+
+        <div class="small-7 columns">
+            <input type="text" placeholder="Type in a search term" />
+        </div>
+
+        <div class="small-3 columns">
+            <a href="#" class="button tiny round">Search</a>
+        </div>
+        <div class="medium-4 columns"></div>
+    </div>
+
+    <div class="row">
+        <div class="small-12 columns">
+            Click on a movie title below to get more info
+        </div>
+    </div>
+
+    <!-- main content - repeat for each movie result -->
+    <div class="row" ng-repeat="results in search.results">
+        <div class="small-12 columns">
+            <h3><a href="#">{{ results.Title }}</a></h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-12 columns">
+            <h3><a href="#">{{ results.Title }}</a></h3>
+        </div>
+    </div>
+
+    <!-- movie result plot summary -->
+    <div class="row">
+        <div class="small-12 columns">
+
+            <ul class="tabs" data-tab role="tablist">
+                <li class="tab-title active" role="presentational"><a href="#panel1" role="tab" tabindex="0" aria-selected="true" controls="panel1">Plot</a>
+                </li>
+                <li class="tab-title" role="presentational"><a href="#panel2" role="tab" tabindex="0" aria-selected="false" controls="panel2">Details</a>
+                </li>
+            </ul>
+            <div class="tabs-content">
+                <section role="tabpanel" aria-hidden="false" class="content active" id="panel1">
+                    <h2>Test </h2>
+                    <blockquote>When Dr. Henry Jones Sr. suddenly goes missing while pursuing the Holy Grail, eminent archaeologist Indiana Jones must follow in his father's footsteps and stop the Nazis.</blockquote>
+                </section>
+                <section role="tabpanel" aria-hidden="true" class="content" id="panel2">
+                    <h2>Indiana Jones and the Last Crusade</h2>
+                    <ul>
+                        <li><strong>Year</strong>: 1989</li>
+                        <li><strong>Rated</strong>: PG-13</li>
+                        <li><strong>Released</strong>: 1989-05-24</li>
+                        <li><strong>Runtime</strong>: 127 min</li>
+                        <li><strong>Genre</strong>: Action, Adventure</li>
+                        <li><strong>Director</strong>: Steven Spielberg</li>
+                        <li><strong>Writer(s)</strong>: Jeffrey Boam (screenplay), George Lucas (story), Menno Meyjes (story), George Lucas (characters), Philip Kaufman (characters)</li>
+                        <li><strong>Actors</strong>: Harrison Ford, Sean Connery, Denholm Elliott, Alison Doody</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script>
+        $(document).foundation();
+    </script>
+</body>
+
+</html>
