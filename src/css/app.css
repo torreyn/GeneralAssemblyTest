@@ -1,0 +1,16 @@
+body {
+    background-color: cornsilk;
+} .tabs {
+    border-color: #e3d8ab;
+    border-width: 0 0 0 1px;
+    border-style: solid;
+} .tabs .tab-title a {
+    border-color: #e3d8ab;
+    border-width: 1px 1px 1px 0;
+    border-style: solid;
+} .tabs .tab-title.active a {
+    background-color: cornsilk;
+    border-color: #e3d8ab;
+    border-width: 1px 1px 0 0;
+    border-style: solid;
+}
