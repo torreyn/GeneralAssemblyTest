@@ -33,7 +33,7 @@
         $scope.reset = function(){
             console.log('reset() called');
             $scope.movieReturned = '';
-            
+            $scope.query = '';
         };
         
         
