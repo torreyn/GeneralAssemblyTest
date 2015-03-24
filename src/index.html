@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Foundation | Welcome</title>
+    <title>Movie Searcher</title>
     <link rel="stylesheet" href="css/foundation.css" />
     <link rel="stylesheet" href="css/app.css" />
     <script src="js/vendor/modernizr.js"></script>
@@ -13,11 +13,12 @@
     <style type="text/css"></style>
 </head>
 
-<body ng-controller="SearchController as search">
+<body ng-controller="SearchController">
+
     <!-- Title -->
     <div class="row">
         <div class="small-12 columns">
-            <h1>Torrey's Movie Search Engine</h1> {{ "Angular is Working!" }}
+            <h1>Torrey's Movie Search Engine</h1> {{ "Angular expression tester !" }}
         </div>
     </div>
 
@@ -28,7 +29,7 @@
         </div>
 
         <div class="small-7 columns">
-            <input type="text" placeholder="Type in a search term" />
+            <input ng-model="SearchController.query" type="text" placeholder="Type in a search term" /> {{ SearchController.query }}
         </div>
 
         <div class="small-3 columns">
@@ -44,7 +45,7 @@
     </div>
 
     <!-- main content - repeat for each movie result -->
-    <div class="row" ng-repeat="results in search.results">
+    <div class="row" ng-repeat="results in data">
         <div class="small-12 columns">
             <h3><a href="#">{{ results.Title }}</a></h3>
         </div>
@@ -56,7 +57,7 @@
     </div>
 
     <!-- movie result plot summary -->
-    <div class="row">
+    <div class="row" ng-show="movieFound">
         <div class="small-12 columns">
 
             <ul class="tabs" data-tab role="tablist">
