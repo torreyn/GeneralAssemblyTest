@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Movie Searcher</title>
+    <title>Torrey's Movie Searcher</title>
     <link rel="stylesheet" href="css/foundation.css" />
     <link rel="stylesheet" href="css/app.css" />
     <script src="js/vendor/modernizr.js"></script>
@@ -22,9 +22,16 @@
         </div>
     </div>
 
+    <!-- Seach again -->
+    <div ng-show="movieReturned" class="row">
+        <div class="small-12 columns">
+            <button class="button small radius" ng-click="reset()">Search Again</button>
+        </div>
+    </div>
+    
     <!-- Search bar -->
-    <div class="row">
-        <form name="searchForm" >
+    <div ng-hide="movieReturned" class="row">
+        <form name="searchForm">
             <div class="small-2 medium-1 columns">
                 <label for="right-label" class="right inline">Movie: </label>
             </div>
@@ -34,13 +41,13 @@
             </div>
 
             <div class="small-3 columns">
-                <button class="button tiny round" ng-click="runSearch()">Search</button>
+                <button class="button tiny radius" ng-click="runSearch()">Search</button>
             </div>
             <div class="medium-4 columns"></div>
         </form>
     </div>
 
-    <div class="row">
+    <div ng-show="data" class="row">
         <div class="small-12 columns">
             Click on a movie title below to get more info
         </div>
@@ -49,17 +56,12 @@
     <!-- main content - repeat for each movie result -->
     <div class="row" ng-repeat="results in data">
         <div class="small-12 columns">
-            <h3><a href="#">{{ results.Title }}</a></h3>
-        </div>
-    </div>
-    <div class="row">
-        <div class="small-12 columns">
-            <h3><a href="#">{{ results.Title }}</a></h3>
+            <h3><a href="#" ng-click="findMovie(results.Title)">{{ results.Title }}</a></h3>
         </div>
     </div>
 
     <!-- movie result plot summary -->
-    <div class="row" ng-show="movieFound">
+    <div class="row" ng-show="movieReturned">
         <div class="small-12 columns">
 
             <ul class="tabs" data-tab role="tablist">
@@ -70,20 +72,20 @@
             </ul>
             <div class="tabs-content">
                 <section role="tabpanel" aria-hidden="false" class="content active" id="panel1">
-                    <h2>Test </h2>
-                    <blockquote>When Dr. Henry Jones Sr. suddenly goes missing while pursuing the Holy Grail, eminent archaeologist Indiana Jones must follow in his father's footsteps and stop the Nazis.</blockquote>
+                    <h2>{{ movieReturned.Title }}</h2>
+                    <blockquote>{{ movieReturned.Plot }}</blockquote>
                 </section>
                 <section role="tabpanel" aria-hidden="true" class="content" id="panel2">
-                    <h2>Indiana Jones and the Last Crusade</h2>
+                    <h2>{{ movieReturned.Title }}</h2>
                     <ul>
-                        <li><strong>Year</strong>: 1989</li>
-                        <li><strong>Rated</strong>: PG-13</li>
-                        <li><strong>Released</strong>: 1989-05-24</li>
-                        <li><strong>Runtime</strong>: 127 min</li>
-                        <li><strong>Genre</strong>: Action, Adventure</li>
-                        <li><strong>Director</strong>: Steven Spielberg</li>
-                        <li><strong>Writer(s)</strong>: Jeffrey Boam (screenplay), George Lucas (story), Menno Meyjes (story), George Lucas (characters), Philip Kaufman (characters)</li>
-                        <li><strong>Actors</strong>: Harrison Ford, Sean Connery, Denholm Elliott, Alison Doody</li>
+                        <li><strong>Year</strong>: {{ movieReturned.Year }}</li>
+                        <li><strong>Rated</strong>: {{ movieReturned.Rated }}</li>
+                        <li><strong>Released</strong>: {{ movieReturned.Released }}</li>
+                        <li><strong>Runtime</strong>: {{ movieReturned.Runtime }}</li>
+                        <li><strong>Genre</strong>: {{ movieReturned.Genre }}</li>
+                        <li><strong>Director</strong>: {{ movieReturned.Director }}</li>
+                        <li><strong>Writer(s)</strong>: {{ movieReturned.Writer }}</li>
+                        <li><strong>Actors</strong>: {{ movieReturned.Actors }}</li>
                     </ul>
                 </section>
             </div>
