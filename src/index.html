@@ -18,24 +18,26 @@
     <!-- Title -->
     <div class="row">
         <div class="small-12 columns">
-            <h1>Torrey's Movie Search Engine</h1> {{ "Angular expression tester !" }}
+            <h1>Torrey's Movie Search Engine</h1>
         </div>
     </div>
 
     <!-- Search bar -->
     <div class="row">
-        <div class="small-2 medium-1 columns">
-            <label for="right-label" class="right inline">Movie: </label>
-        </div>
+        <form name="searchForm" >
+            <div class="small-2 medium-1 columns">
+                <label for="right-label" class="right inline">Movie: </label>
+            </div>
 
-        <div class="small-7 columns">
-            <input ng-model="SearchController.query" type="text" placeholder="Type in a search term" /> {{ SearchController.query }}
-        </div>
+            <div class="small-7 columns">
+                <input ng-model="query" type="text" placeholder="Type in a search term" />
+            </div>
 
-        <div class="small-3 columns">
-            <a href="#" class="button tiny round">Search</a>
-        </div>
-        <div class="medium-4 columns"></div>
+            <div class="small-3 columns">
+                <button class="button tiny round" ng-click="runSearch()">Search</button>
+            </div>
+            <div class="medium-4 columns"></div>
+        </form>
     </div>
 
     <div class="row">
