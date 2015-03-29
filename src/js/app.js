@@ -3,15 +3,16 @@
     var app = angular.module('movieSearcher', []);
 
     app.controller('SearchController', ['$scope', '$http', function ($scope, $http) {
-        console.log('SearchController loaded');
+        // console.log('SearchController loaded');
         
         // search movie
         $scope.runSearch = function() {
-            console.log($scope.query);
-            
-            
             $http.get('http://www.omdbapi.com/?s=' + $scope.query + '&r=json').success(function (data) {
                 $scope.data = data.Search;
+                $scope.notFound = false;
+                if (data.Search == undefined){
+                    $scope.notFound = true;
+                };
             }).error(function (data) {
                 console.log('error calling API');
             });

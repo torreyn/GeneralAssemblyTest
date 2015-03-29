@@ -59,6 +59,13 @@
             <h3><a href="#" ng-click="findMovie(results.Title)">{{ results.Title }}</a></h3>
         </div>
     </div>
+    
+    <!-- show if no search result -->
+    <div class="row" ng-show="notFound">
+        <div class="small-12 columns">
+            <h3>Sorry, no results found.</h3>
+        </div>
+    </div>
 
     <!-- movie result plot summary - show only when a movie is selected -->
     <div class="row" ng-show="movieReturned">
